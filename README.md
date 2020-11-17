@@ -23,13 +23,16 @@ Random sampling supports discrete and continuous hyperparameters. It supports ea
 
 Bandit policy is based on slack factor/slack amount and evaluation interval. Bandit terminates runs where the primary metric is not within the specified slack factor/slack amount compared to the best performing run. I chose the following parameters to the Bandit Policy  as _slack_factor = 0.1, evaluation_interval=1, delay_evaluation=5_.
 
+
 ## AutoML
 
 Parameters like task, primary metric, experiment timeout, training data etc. are passed into the AutoMlConfig to create an optimzed pipeline run on AutoMl that test various models and displays the best ML Algorithm based on the metrics and run time.
 
+
 ## Pipeline comparison
 
 The HyperDrive Model had an Accuracy of about _0.9096611026808296_ and the AutoML Model had around _0.9167569911120748_. Although there doesn't seem to be much of a difference in the Primary Metric, I think using AutoML helped in exploring many of the machine learning algorithms that would have otherwise not considered.
+
 
 ## Future work
 
