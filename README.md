@@ -26,15 +26,28 @@ Bandit policy is based on slack factor/slack amount and evaluation interval. Ban
 
 ## AutoML
 
-Parameters like task, primary metric, experiment timeout, training data etc. are passed into the AutoMlConfig to create an optimzed pipeline run on AutoMl that test various models and displays the best ML Algorithm based on the metrics and run time.
+Parameters like task, primary metric, experiment timeout, training data etc. are passed into the AutoMlConfig to create an optimzed pipeline run on AutoMl that test various models and displays the best ML Algorithm based on the metrics and run time. Around 49 pipelines with different ML Algorithms were run and the best one turned out to be the **Voting Ensemble**.
+
+The Explanations section shed some light on which of the features had the most impact in predicting the results. In this dataset, the duration, emp.var.rate etc and nr.employed seem to be the most essential in making accurate predictions.
+
+## GLobal Importance
+![Alt text](https://github.com/MonishkaDas/nd00333_AZMLND_Optimizing_a_Pipeline_in_Azure-Starter_Files/blob/master/Screenshots/Screenshot%202020-11-17%20143805.png?raw=true "Global Importance")
+## Summary Importance
+![Alt text](https://github.com/MonishkaDas/nd00333_AZMLND_Optimizing_a_Pipeline_in_Azure-Starter_Files/blob/master/Screenshots/Screenshot%202020-11-17%20143907.png?raw=true "Summary Importance")
 
 
 ## Pipeline comparison
 
 The HyperDrive Model had an Accuracy of about _0.9096611026808296_ and the AutoML Model had around _0.9167569911120748_. Although there doesn't seem to be much of a difference in the Primary Metric, I think using AutoML helped in exploring many of the machine learning algorithms that would have otherwise not considered.
 
+The **HyperDrive Model** did a good job in finding a model that gives the best results by tweaking a few parameters. In this project, the parameters _--c, max_iter_ were changed and the different combinations were tested to produce a model with best primary metric value .
+
+![Alt text](https://github.com/MonishkaDas/nd00333_AZMLND_Optimizing_a_Pipeline_in_Azure-Starter_Files/blob/master/Screenshots/Screenshot%202020-11-17%20145851.png?raw=true "Run Details")
+
+The **AutoML Model** on the other hand ran numerous pipelines on the cleaned data simultaneously to draw out a model with best possible primary metric value which in this case is _Accuracy_. The AutoML Run has also helped in analysing the various features of the data on the basis of their impact on the prediction of Label_column (in this case _"y"_).
+
 
 ## Future work
 
-In future experiments, I would like to explore the data cleaning part and observe it's impact on the overall performance. I will also try tweaking some parameters and run the models for a longer time to study the changes that causes in the ultimate result.
+In future experiments, I would like to explore the data cleaning part and observe it's impact on the overall performance. I assume that extensive efforts on data cleaning will show a positive change in the result in both the models. I will also try tweaking some parameters and run the models for a longer time to study the changes that causes in the ultimate result.
 
